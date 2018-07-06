@@ -143,6 +143,7 @@ module.exports = function(environment) {
       feedback: 'feedback',
       revokeGitHub: 'unauthorize_github',
       revokeJira: 'unauthorize_jira',
+      authorizeGithub: 'authorize_github',
       integrateJira: 'integrate_jira',
       changePassword: 'change_password',
       namespaceAdd: 'namespace_add',

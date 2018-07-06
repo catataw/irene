@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('recover');
   this.route('reset', {path: '/reset/:uuid/:token'});
   this.route('setup', {path: '/setup/:uuid/:token'});
+  this.route('github_redirect', {path: '/github_redirect'});
   this.route('authenticated', {path: '/'}, function() {
     this.route("index", {path: '/'});
     this.route("teams", {path: '/teams'});
