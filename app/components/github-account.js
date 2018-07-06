@@ -37,7 +37,15 @@ const GithubAccountComponent = Ember.Component.extend({
 
     integrateGithub() {
       triggerAnalytics('feature',ENV.csb.integrateGithub);
-      window.open(this.get("user.githubRedirectUrl", '_blank'));
+      const that = this;
+      // TEMP: remove this after implementing adapter
+      return this.get("ajax").request('http://localhost:8000/api/organizations/1/github_authorize_url')
+        .then(data => {
+          window.location.href = data.url;
+        })
+        .catch(err => {
+          that.get("notify").error(err.message, ENV.notifications);
+        });
     },
 
     openRevokeGithubConfirmBox() {
