@@ -14,4 +14,4 @@ COPY . /code/
 RUN chown -R irene:irene /code/
 COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN gosu irene npm install
+RUN gosu irene npm install && npx ember build --environment whitelabel

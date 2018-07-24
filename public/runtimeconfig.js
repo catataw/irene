@@ -1,3 +1,10 @@
 var runtimeGlobalConfig = {
-
+  ENTERPRISE: '',
+  IRENE_API_HOST: '',
+  IRENE_API_SOCKET_PATH: '',
+  IRENE_DEVICEFARM_URL: '',
+  WHITELABEL_ENABLED: '',
+  WHITELABEL_NAME: '',
+  WHITELABEL_LOGO: '',
+  WHITELABEL_THEME: ''
 }
