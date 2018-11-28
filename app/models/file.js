@@ -37,18 +37,16 @@ const File = DS.Model.extend(BaseModelMixin, {
   isDynamicDone: DS.attr('boolean'),
   isManualDone: DS.attr('boolean'),
   isApiDone: DS.attr('boolean'),
+  apiScanStatus: DS.attr('number'),
 
   ifManualNotRequested: computed('manual', function() {
     const manual = this.get('manual');
     return !manual;
   }),
 
-  isRunningApiScan: computed('apiScanProgress', function() {
-    const apiScanProgress = this.get("apiScanProgress");
-    if ([0,100].includes(apiScanProgress)) {
-      return false;
-    }
-    return true;
+  isRunningApiScan: computed('apiScanStatus', function() {
+    const apiScanStatus = this.get("apiScanStatus");
+    return apiScanStatus == ENUMS.SCAN_STATUS.RUNNING;
   }),
 
   isApiNotDone: computed.not('isApiDone'),
