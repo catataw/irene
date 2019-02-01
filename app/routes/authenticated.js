@@ -43,7 +43,10 @@ const AuthenticatedRoute = Route.extend(AuthenticatedRouteMixin, {
     triggerAnalytics('login', data);
     try {
        // eslint-disable-next-line no-undef
-      $crisp.push([ "set", "user:email", user.get("email")]);
+      $crisp.push([ "set", "user:email", [
+        user.get("email"),
+        user.get("crispHash")
+      ]]);
     } catch (e) { error = e; }
     try {
       const mixpanel = this.get("mixpanel");
